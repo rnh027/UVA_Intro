@@ -1,0 +1,31 @@
+import java.io.*;
+import java.util.*;
+
+class Main {
+	
+	public static void main (String [] arg) throws IOException {
+		BufferedReader ip=new BufferedReader(new InputStreamReader(System.in));
+		String s;
+		while (!(s=ip.readLine()).equals("0 0")) {
+			StringTokenizer st=new StringTokenizer(s);
+			int M=Integer.parseInt(st.nextToken());
+			int N=Integer.parseInt(st.nextToken());
+			HashSet<String> list1=new HashSet<String>();
+			for (int i=0;i<M;i++)
+			{
+			  list1.add(ip.readLine());
+			}
+			int count=0;
+			for (int i=0;i<N;i++)
+			{
+			if (list1.contains(ip.readLine()))
+			{
+			    count++;
+			}
+			}
+			System.out.println(count);
+		}
+		
+	}
+}
+
