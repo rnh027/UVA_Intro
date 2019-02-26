@@ -1,0 +1,48 @@
+import java.io.*;
+import java.util.*;
+import java.lang.*;
+
+class Main {
+	public static void main (String[] args)throws IOException {
+		Scanner ip=new Scanner(System.in);
+		while(ip.hasNext())
+		{
+		    String c=ip.nextLine();
+		    StringTokenizer st=new StringTokenizer(c," ");
+		    int f=Integer.parseInt(st.nextToken());
+		    int b1=Integer.parseInt(st.nextToken());
+		    if(f==0)
+		      break;
+		    int a[]=new int[f];
+		    int b[]=new int[b1];
+		    String c1=ip.nextLine();
+		    StringTokenizer st1=new StringTokenizer(c1," ");
+		    String c2=ip.nextLine();
+		    StringTokenizer st2=new StringTokenizer(c2," ");
+		    for(int i=0;i<f;i++)
+		    {
+		        a[i]=Integer.parseInt(st1.nextToken());;
+		    }
+		    for(int j=0;j<b1;j++)
+		    {
+		        b[j]=Integer.parseInt(st2.nextToken());
+		    }
+		    ArrayList<Float>temp=new ArrayList<Float>();
+		    for(int i=0;i<f;i++)
+		    {
+		        for(int j=0;j<b1;j++)
+		        {
+		            float x=(float)a[i]/(float)b[j];
+		            temp.add(x);
+		        }
+		    }
+		    Collections.sort(temp);
+		    float maxi=0;
+		    for(int k=0;k<temp.size()-1;k++)
+		    {
+		        maxi = Math.max(maxi,temp.get(k+1) / temp.get(k));
+		    }
+		    System.out.printf("%.2f\n",maxi);
+		}
+	}
+}
